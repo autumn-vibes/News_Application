@@ -109,5 +109,39 @@
         app:layout_constraintStart_toStartOf="@+id/addnote_image"
         app:layout_constraintTop_toTopOf="@+id/addnote_image"
         app:layout_constraintVertical_bias="0.275" />
+    
 
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/addnote_imageview"
+        android:layout_width="130dp"
+        android:layout_height="110dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addnote_image"
+        app:layout_constraintEnd_toEndOf="@+id/addnote_image"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="@+id/addnote_image"
+        app:layout_constraintTop_toTopOf="@+id/addnote_image"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addnote_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rec_red"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Save Details"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="#807951"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addnote_image" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
