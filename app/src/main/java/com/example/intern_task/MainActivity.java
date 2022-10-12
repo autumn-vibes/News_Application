@@ -32,7 +32,19 @@ public class MainActivity extends AppCompatActivity {
             chmobno2.setError("invalid");
         }
 
-        
+        // CHECK FOR EMAIL ID
+        Integer email_check = 0;
+        final EditText emailValidate = (EditText)findViewById(R.id.main_email);
+        String email = emailValidate.getText().toString().trim();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (email.matches(emailPattern)) {
+            email_check = 1;
+        }
+        else if(mobile_check == 0){
+            emailValidate.setError("invalid");
+        }
+
+
     }
     public void sign_up(View view) {
         Intent intent = new Intent(this, SignupActivity.class);
