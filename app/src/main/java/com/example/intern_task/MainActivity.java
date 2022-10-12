@@ -56,6 +56,28 @@ public class MainActivity extends AppCompatActivity {
             passwordValidate.setError("invalid");
         }
 
+        if ((mobile_check == 1 || email_check == 1) && password_check == 1){
+            // VALUES IN mb , email , pass
+            //VERIFY IF DETAILS PRESENT IN DATABASE OR NOT
+            SQLiteDatabase myR = openOrCreateDatabase("User_Details",android.content.Context.MODE_PRIVATE,null);
+            myR.execSQL("CREATE TABLE IF NOT EXISTS data_base(UserID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Name VARCHAR NOT NULL ,Mob_number Integer DEFAULT 0, email_id Varchar DEFAULT 0, password Varchar DEFAULT 0);");
+            Cursor D = myR.rawQuery("select * from data_base",null);
+            while(D.moveToNext()){
+                String name_count=(String) D.getString(1);
+                String mob_count=(String) D.getString(2);
+                String email_count=(String) D.getString(3);
+                String password_count=(String) D.getString(4);
+                if((mob_count.equals(mb) || email_count.equals(email)) && password_count.equals(pass)){
+                    Toast.makeText(getApplicationContext(),"Welcome "+name_count, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, HomeActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"INVALID DETAILS", Toast.LENGTH_SHORT).show();
+        }
     }
     public void sign_up(View view) {
         Intent intent = new Intent(this, SignupActivity.class);
