@@ -44,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
             emailValidate.setError("invalid");
         }
 
+        // CHECK FOR PASSWORD
+        Integer password_check = 0;
+        final EditText passwordValidate = (EditText)findViewById(R.id.main_password);
+        String pass = passwordValidate.getText().toString().trim();
+        String passwordPattern = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{4,20})";
+        if(pass.matches(passwordPattern) && passwordValidate.length()>7 && passwordValidate.length()<16){
+            password_check = 1;
+        }
+        else{
+            passwordValidate.setError("invalid");
+        }
 
     }
     public void sign_up(View view) {
